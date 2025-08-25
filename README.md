@@ -1,4 +1,4 @@
-# VIGENERE-CIPHER
+<img width="1657" height="826" alt="image" src="https://github.com/user-attachments/assets/b67ac49b-16a4-4d59-9931-49a06a61f1e0" /># VIGENERE-CIPHER
 ## EX. NO: 4
  
 
@@ -29,8 +29,30 @@ STEP-7: The junction character where these two meet forms the cipher character.
 STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
-## PROGRAM
+## PROGRAM:
+```
+#include <stdio.h>
+ #include <string.h>
+ void vigenereCipher(char *text, char *key, int decrypt) {
+ int len = strlen(text), keyLen = strlen(key);
+ for (int i = 0; i < len; i++) {
+ int shift = key[i % keyLen]- 'A';
+ text[i] = 'A' + (text[i]- 'A' + (decrypt ? 26- shift : shift)) % 26;
+ }
+ }
+ int main() {
+ char text[] = "MARELLAHASINI", key[] = "KEY";
+ vigenereCipher(text, key, 0);
+ printf("Encrypted Message: %s\n", text);
+ vigenereCipher(text, key, 1);
+ printf("Decrypted Message: %s\n", text);
+ return 0;
+ }
+```
 
-## OUTPUT
+## OUTPUT:
+<img width="1657" height="826" alt="image" src="https://github.com/user-attachments/assets/e2900a6d-7ce0-4804-8a58-95a5f2d71947" />
 
-## RESULT
+
+## RESULT:
+Thus the execution of the Vigenere Cipher has executed successfully.
